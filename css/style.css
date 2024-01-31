@@ -7,12 +7,8 @@
 :root{
     --main-dark: #1D1E26;
     --alt-dark: #262932;
-    --simillar: #0482ff;
-    --text-dark: #ddd;
-    --bg: #6A5FE8;
-    --hover: #5246dd;
-    --border: #384759;
-    --shadow: rgba(0,0,0,0.54);
+    --text-dark: #d1d1d1;
+
 }
 
 body {
@@ -20,28 +16,31 @@ body {
     font-size: 0.875rem;
     opacity: 1;
     margin: 0;
-    --main: #fff;
-    --alt: #eee;
-    --simillar: #0482ff;
-    --text: #333;
-
-    background-color: var(--main-light);
-    color: var(--text-light);
+    --main: #F8F8F8;
+    --alt: #FFFFFF;
+    --text-color: #333;
+    --simillar: #3f82ff;
+    --active: #3f82ff8e;
+    --hover: #1b68f827;
+    background: var(--background-color);
+    color: var(--text-color);
 }
 
-body.dark-theme{
+body.theme-dark{
     --main: var(--main-dark);
     --alt: var(--alt-dark);
-    --text: var(--text-dark);
+    --text-color: var(--text-dark);
 }
 
 @media (prefers-color-scheme : dark){
     body.theme-auto{
         --main: var(--main-dark);
         --alt: var(--alt-dark);
-        --text: var(--text-dark);
+        --text-color: var(--text-dark);
     }
 }
+
+
 a {
     cursor: pointer;
     text-decoration: none;
@@ -51,12 +50,9 @@ li {
     list-style: none;
 }
 h4 {
-    font-family: 'Poppins', sans-serif;
     font-size: 1.275rem;
-    color: var(--text);
+    color: var(--text-color);
 }
-
-/* custom styles */
 
 
 /* Layout for admin dashboard skeleton */
@@ -97,14 +93,14 @@ h4 {
     padding: 0 !important;
 }
 .sidebar-header {
-    color: #e9ecef;
+    color: var(--text-color);
     font-size: .75rem;
     padding: 1.5rem 1.5rem .375rem;
 }
 
 a.sidebar-link {
     padding: .625rem 1.625rem;
-    color: var(--text);
+    color: var(--text-color);
     position: relative;
     display: block;
     font-size: 0.875rem;
@@ -143,35 +139,26 @@ a.sidebar-link {
         width: auto;
     }
 }
+.li-hover{
+    transition: 0.4s;
+}
+.li-hover:hover{
+    background-color: var(--hover);
+}
+.li-hover.active{
+    background-color: var(--active);
+}
+
+
 
 /* Sidebar Toggle */
 #sidebar.collapsed {
     margin-left: -264px;
 }
-
-/* Theme Toggler */
-.theme-toggle {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-65%);
-    text-align: center;
-    z-index: 10;
-    left: 0;
-    right: auto;
-    border: none;
-    background-color: var(--main);
+.hamber{
+    background-color: transparent;
+    color: var(--text-color);
 }
-html[data-bs-theme="dark"] .theme-toggle .fa-sun,
-html[data-bs-theme="light"] .theme-toggle .fa-moon {
-    cursor: pointer;
-    padding: 10px;
-    display: block;
-    font-size: 1.25rem;
-    color: var(--simillar);
-}
-html[data-bs-theme="dark"] .theme-toggle .fa-moon {
-    display: none;
-}
-html[data-bs-theme="light"] .theme-toggle .fa-sun {
-    display: none;
+.navbar{
+    background-color: var(--alt);
 }

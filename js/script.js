@@ -3,29 +3,40 @@ sidebarToggle.addEventListener("click",function(){
     document.querySelector("#sidebar").classList.toggle("collapsed");
 });
 
-document.querySelector(".theme-toggle").addEventListener("click",() => {
-    toggleLocalStorage();
-    toggleRootClass();
-});
-
-function toggleRootClass(){
-    const current = document.documentElement.getAttribute('data-bs-theme');
-    const inverted = current == 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-bs-theme',inverted);
+// theme mode
+function applyTheme(theme){
+    document.body.classList.remove("theme-auto","theme-light","theme-dark");
+    document.body.classList.add(`theme-${theme}`);
 }
 
-function toggleLocalStorage(){
-    if(isLight()){
-        localStorage.removeItem("light");
-    }else{
-        localStorage.setItem("light","set");
+document.addEventListener("DOMContentLoaded", () => {
+    const saveTheme = localStorage.getItem('theme') || "auto";
+
+    applyTheme(saveTheme)
+
+    for(const opationElement of document.querySelectorAll('#selTheme option')){
+        opationElement.selected = saveTheme === opationElement.value
     }
-}
+    document.querySelector('#selTheme').addEventListener("change", function () {
+        localStorage.setItem("theme", this.value)
+        applyTheme(this.value)
+    })
+})
 
-function isLight(){
-    return localStorage.getItem("light");
-}
+// active 
 
-if(isLight()){
-    toggleRootClass();
-}
+// انتخاب تمام عناصر li-hover
+let lastClickedItem = null;
+const sidebarItems = document.querySelectorAll('.li-hover');
+sidebarItems.forEach(function(item) {
+    item.addEventListener('click', function() {
+        if (lastClickedItem === item) {
+            return;
+        }
+        if (lastClickedItem) {
+            lastClickedItem.classList.remove('active');
+        }
+        item.classList.add('active');
+        lastClickedItem = item;
+    });
+});
