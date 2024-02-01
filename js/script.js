@@ -23,9 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 })
 
-// active 
 
-// انتخاب تمام عناصر li-hover
+// active 
 let lastClickedItem = null;
 const sidebarItems = document.querySelectorAll('.li-hover');
 sidebarItems.forEach(function(item) {
@@ -38,5 +37,21 @@ sidebarItems.forEach(function(item) {
         }
         item.classList.add('active');
         lastClickedItem = item;
+    });
+});
+
+
+let childItem = null;
+const childItemSidebar = document.querySelectorAll('.li-child');
+childItemSidebar.forEach(function(item) {
+    item.addEventListener('click', function() {
+        if (childItem === item) {
+            return;
+        }
+        if (childItem) {
+            childItem.classList.remove('activeChild');
+        }
+        item.classList.add('activeChild');
+        childItem = item;
     });
 });

@@ -3,25 +3,24 @@
 ::before {
     box-sizing: border-box;
 }
-
 :root{
     --main-dark: #1D1E26;
     --alt-dark: #262932;
     --text-dark: #d1d1d1;
-
 }
-
 body {
     font-family: 'Poppins', sans-serif;
     font-size: 0.875rem;
     opacity: 1;
     margin: 0;
-    --main: #F8F8F8;
+    --main: #e7e6e6;
     --alt: #FFFFFF;
     --text-color: #333;
     --simillar: #3f82ff;
     --active: #3f82ff8e;
     --hover: #1b68f827;
+    --label: #858585;
+
     background: var(--background-color);
     color: var(--text-color);
 }
@@ -31,7 +30,6 @@ body.theme-dark{
     --alt: var(--alt-dark);
     --text-color: var(--text-dark);
 }
-
 @media (prefers-color-scheme : dark){
     body.theme-auto{
         --main: var(--main-dark);
@@ -39,7 +37,6 @@ body.theme-dark{
         --text-color: var(--text-dark);
     }
 }
-
 
 a {
     cursor: pointer;
@@ -53,7 +50,6 @@ h4 {
     font-size: 1.275rem;
     color: var(--text-color);
 }
-
 
 /* Layout for admin dashboard skeleton */
 .wrapper {
@@ -83,7 +79,6 @@ h4 {
 .sidebar-logo {
     padding: 1.15rem;
 }
-
 .sidebar-logo a {
     color: var(--simillar);
     font-size: 1.15rem;
@@ -93,9 +88,9 @@ h4 {
     padding: 0 !important;
 }
 .sidebar-header {
-    color: var(--text-color);
+    color: var(--label) !important;
     font-size: .75rem;
-    padding: 1.5rem 1.5rem .375rem;
+    padding: 1.5rem 1.5rem .150rem;
 }
 
 a.sidebar-link {
@@ -124,6 +119,7 @@ a.sidebar-link {
 .avatar {
     height: 40px;
     width: 40px;
+    border-radius: 50%;
 }
 .navbar-expand .navbar-nav {
     margin-right: auto;
@@ -141,15 +137,21 @@ a.sidebar-link {
 }
 .li-hover{
     transition: 0.4s;
+    border-right: 4px solid var(--alt);
+    transition: 0.5s;
 }
 .li-hover:hover{
     background-color: var(--hover);
 }
 .li-hover.active{
-    background-color: var(--active);
+    border-right: 4px solid var(--active);
 }
-
-
+.li-child:hover{
+    background-color: var(--simillar);
+}
+.li-child.activeChild{
+    border-right: 3px solid  greenyellow;
+}
 
 /* Sidebar Toggle */
 #sidebar.collapsed {
@@ -161,4 +163,12 @@ a.sidebar-link {
 }
 .navbar{
     background-color: var(--alt);
+}
+
+/* custom styles */
+.bg-alt{
+    background-color: var(--alt);
+}
+.lable-color{
+    color: var(--label);
 }
