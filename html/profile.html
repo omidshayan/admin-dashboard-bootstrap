@@ -38,7 +38,7 @@
     <!-- STYLE CSS -->
     <link href="../assets/css/style.css" rel="stylesheet" />
     <link href="../assets/css/dark-style.css" rel="stylesheet" />
-
+    <link href="../assets/css/custom.css" rel="stylesheet" />
     <!-- COLOR SKIN CSS -->
     <link
       id="theme"
@@ -757,42 +757,78 @@
           <!--/APP-SIDEBAR-->
         </div>
 
-        <!--app-content open-->
+        <!-- contetn start -->
         <div class="main-content app-content mt-0">
           <div class="side-app">
-            <!-- CONTAINER -->
             <div class="main-container container-fluid">
               <!-- PAGE-HEADER -->
               <div class="page-header">
-                <h1 class="page-title">Full Calendar</h1>
+                <h1 class="page-title a-mt10">صفحه دوم</h1>
               </div>
               <!-- PAGE-HEADER END -->
 
-              <!-- ROW OPEN -->
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="card">
-                    <div class="card-header">
-                      <h3 class="card-title">List Calendar</h3>
+              <!-- main content start -->
+              <div class="box-content-container mb-100">
+                <form id="submitForm" method="post" action="<?= url('product/store') ?>" enctype="multipart/form-data">
+
+                    <div class="a-input d-flex justify-content-center">
+                        <div class="singel-input">
+                            <label class="d-block m-1">نام محصول <span class="text-danger">*</span></label>
+                            <div class="input-back">
+                                <i class="fas fa-layer-group"></i>
+                                <input type="text" name="name" id="name" class="a-input-size" placeholder="نام محصول  را وارد نمایید...">
+                            </div>
+                        </div>
+                        <div class="singel-input">
+                            <label class="d-block m-1"> دسته بندی</label>
+                            <div class="input-back">
+                                <select name="category" class="a-select-size status">
+                                    <option value="" selected disabled>انتخاب دسته بندی</option>
+                                    <?php foreach ($main_categories as $main_categorie) { ?>
+                                        <option value="<?= $main_categorie['id'] ?>"><?= $main_categorie['name'] ?></option>
+                                    <?php   } ?>
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                      <div id="calendar">
-                        pro page file
-                      </div>
+
+                    <div class="a-input d-flex justify-content-center">
+                        <div class="singel-input">
+                            <label class="d-block m-1">کمپانی</label>
+                            <div class="input-back">
+                                <i class="fas fa-object-ungroup"></i>
+                                <input type="text" name="company_name" id="parent_id" class="a-input-size text-right" placeholder="کمپانی را وارد نمایید..." autocomplete="off">
+                            </div>
+                        </div>
+
+                        <div class="singel-input">
+                            <label class="d-block m-1">توضیحات</label>
+                            <div class="">
+                                <textarea name="description" id="" cols="30" rows="10" class="a-area-size" placeholder="توضیحات محصول...."></textarea>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- ROW CLOSED -->
+
+                    <div class="a-input d-flex justify-content-center">
+                        <div class="singel-input text-center">
+                            <label class="d-block m-1">انتخاب عکس</label>
+                            <input type="file" name="image" id="file-input" accept="image/*" multiple onchange="previewImages()">
+                            <div id="image-preview-container"></div>
+                        </div>
+                    </div>
+
+                    <input type="submit" value="ثبت" class="a-btn">
+                    <!-- <div class="loader a-spiner" id="spiner"></div> -->
+                    <!-- <div id="notification" class="notification"> </div> -->
+
+                </form>
             </div>
-            <!-- CONTAINER CLOSED -->
+              <!-- main content end -->
+            </div>
           </div>
         </div>
-        <!--app-content close-->
+        <!-- content end -->
       </div>
-
-
 
       <!-- Sidebar-left -->
 
@@ -801,9 +837,6 @@
       <!-- Country-selector modal-->
 
       <!-- Country-selector modal-->
-
-
-
 
       <!-- FOOTER -->
       <footer class="footer">

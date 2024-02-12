@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>انتخاب رنگ</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+        /* قالب دارک */
+        body.dark-mode {
+            background-color: #343a40;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>تنظیم رنگ</h2>
+        <div class="form-group">
+            <label for="lightColorPicker">رنگ نور:</label>
+            <input type="color" id="lightColorPicker" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="darkColorPicker">رنگ تاریک:</label>
+            <input type="color" id="darkColorPicker" class="form-control">
+        </div>
+        <button id="applyColorsBtn" class="btn btn-primary">اعمال رنگ‌ها</button>
+    </div>
+    <script>
+        $(document).ready(function() {
+    // تابعی برای اجرا هنگام تغییر رنگ
+    $('#lightColorPicker, #darkColorPicker').on('input', function() {
+        applyCustomColors();
+    });
+
+    // تابعی برای اعمال رنگ‌های انتخاب شده
+    function applyCustomColors() {
+        var lightColor = $('#lightColorPicker').val();
+        var darkColor = $('#darkColorPicker').val();
+
+        // اعمال رنگ به عناصر مورد نظر (به صورت دلخواه)
+        $('body').css({
+            'background-color': darkColor,
+            'color': lightColor
+        });
+    }
+
+    // تغییر حالت دارک
+    $('#applyColorsBtn').on('click', function() {
+        applyCustomColors(); // اعمال رنگ‌ها قبل از تغییر حالت دارک
+        $('body').toggleClass('dark-mode');
+        applyCustomColors(); // اعمال رنگ‌ها در حالت دارک
+    });
+});
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="your-custom-script.js"></script>
+</body>
+</html>
