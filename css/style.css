@@ -261,6 +261,37 @@ a.sidebar-link {
  
 /* add neomorphism style */
 
+/* start loading full screen */
+/* CSS برای تیرگی صفحه */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* اینجا شما می‌توانید شفافیت را تنظیم کنید */
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CSS برای سپینر */
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3); /* اینجا شما می‌توانید رنگ مرز سپینر را تنظیم کنید */
+    border-top: 4px solid #ffffff; /* اینجا شما می‌توانید رنگ بالای سپینر را تنظیم کنید */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+/* این کد برای انیمیشن چرخش سپینر استفاده می‌شود */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* end loading full screen */
 
 
 

@@ -55,3 +55,19 @@ childItemSidebar.forEach(function(item) {
         childItem = item;
     });
 });
+
+// start loading full screen 
+function showLoadingOverlay() {
+    var overlay = document.getElementById('loadingOverlay');
+    if (overlay) {
+        overlay.style.display = 'flex';
+    }
+}
+
+function hideLoadingOverlay() {
+    var overlay = document.getElementById('loadingOverlay');
+    if (overlay) {
+        overlay.style.display = 'none';
+    }
+} 
+// end loading full screen
