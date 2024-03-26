@@ -4,11 +4,12 @@
 }
 :root{
     --main-color: #08071d;
-    --simillar-color: #100e33;
+    --simillar-color: #11101a;
     --border-color: #3b3b3b;
     --text-color: #c0bebe;
 }
 body {
+    direction: rtl;
     font-family: vazir !important;
     color: var(--text-color);
 }
