@@ -13,3 +13,12 @@ body {
     font-family: vazir !important;
     color: var(--text-color);
 }
+
+
+/* sidebar */
+.sidebar{
+    width: 16rem;
+}
+.sidebar-toggle{
+    cursor: pointer;
+}
